@@ -1,13 +1,14 @@
 ---
 import Main from "@/layouts/main.astro"
+import RollingLink from "@/components/rolling-link.astro"
 ---
 
 <Main>
-  <main class="py-16">
+  <main class="py-12">
     <h1 class="sr-only">Ben Swanson</h1>
-    <nav aria-label="Main" class="flex flex-col items-start gap-8">
-      <a href="/blog" class="text-5xl font-semibold tracking-tight hover:underline">Blog</a>
-      <a href="/bio" class="text-5xl font-semibold tracking-tight hover:underline">Bio</a>
+    <nav aria-label="Main" class="flex flex-col items-start gap-16">
+      <RollingLink href="/blog" label="Blog" class="text-5xl font-semibold tracking-tight" />
+      <RollingLink href="/bio" label="Bio" class="text-5xl font-semibold tracking-tight" />
     </nav>
   </main>
 </Main>
