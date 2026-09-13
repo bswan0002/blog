@@ -1,17 +1,13 @@
 ---
-import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+import Main from "@/layouts/main.astro"
 ---
 
-<Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
-    </div>
-  </div>
-</Layout>
+<Main>
+  <main class="py-16">
+    <h1 class="sr-only">Ben Swanson</h1>
+    <nav aria-label="Main" class="flex flex-col items-start gap-8">
+      <a href="/blog" class="text-5xl font-semibold tracking-tight hover:underline">Blog</a>
+      <a href="/bio" class="text-5xl font-semibold tracking-tight hover:underline">Bio</a>
+    </nav>
+  </main>
+</Main>

@@ -18,10 +18,13 @@ const { post } = Astro.props
 const { Content } = await render(post)
 ---
 
-<Main title={post.data.title} description={post.data.description}>
-  <main class="mx-auto max-w-3xl px-6 py-12">
-    <a href="/blog" class="text-sm text-muted-foreground hover:underline">← Blog</a>
-    <article class="typeset mt-8">
+<Main
+  title={post.data.title}
+  description={post.data.description}
+  breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.data.title }]}
+>
+  <main class="py-12">
+    <article class="typeset">
       <h1>{post.data.title}</h1>
       <p class="text-sm text-muted-foreground">
         <time datetime={post.data.pubDate.toISOString()}>

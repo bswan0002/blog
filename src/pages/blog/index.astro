@@ -7,8 +7,8 @@ const posts = (await getCollection("blog")).sort(
 )
 ---
 
-<Main title="Blog">
-  <main class="typeset mx-auto max-w-3xl px-6 py-12">
+<Main title="Blog — Ben Swanson" breadcrumbs={[{ label: "Blog" }]}>
+  <main class="typeset py-12">
     <h1>Blog</h1>
     <ul>
       {posts.map((post) => (
