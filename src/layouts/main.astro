@@ -58,7 +58,7 @@ const { title = "Ben Swanson", description, breadcrumbs = [] } = Astro.props
     {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <header class="sticky top-0 z-50 border-b bg-background py-4">
+    <header id="site-header" class="sticky top-0 z-50 border-b bg-background py-4">
       <div class="mx-auto flex w-[calc(100%-2rem)] max-w-[640px] items-center justify-between gap-4">
         <SiteBreadcrumb items={breadcrumbs} />
         <ModeToggle client:load />
@@ -69,3 +69,80 @@ const { title = "Ben Swanson", description, breadcrumbs = [] } = Astro.props
     </div>
   </body>
 </html>
+
+<style>
+  #site-header {
+    transform: translateY(0);
+  }
+
+  @media (width < 48rem) and (prefers-reduced-motion: no-preference) {
+    #site-header {
+      transition: transform 300ms var(--ease-out);
+    }
+
+    #site-header:focus-within {
+      transition: none;
+    }
+
+    #site-header[data-hidden="true"]:not(:focus-within) {
+      transform: translateY(-100%);
+    }
+  }
+</style>
+
+<script>
+  const header = document.querySelector("#site-header")
+  const main = document.querySelector("main")
+
+  if (header instanceof HTMLElement && main instanceof HTMLElement) {
+    const mobile = window.matchMedia("(width < 48rem)")
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const scrollPosition = () => Math.max(0, Math.min(
+      window.scrollY,
+      document.documentElement.scrollHeight - window.innerHeight,
+    ))
+    let previousY = scrollPosition()
+    let cutoff = 0
+
+    const show = () => {
+      header.dataset.hidden = "false"
+    }
+
+    const measure = () => {
+      // The sticky header already occupies its height in document flow.
+      // Start hiding when the content's top padding has scrolled away.
+      cutoff = parseFloat(getComputedStyle(main).paddingTop) || 0
+      if (scrollPosition() <= cutoff) show()
+    }
+
+    const reset = () => {
+      show()
+      previousY = scrollPosition()
+      measure()
+    }
+
+    window.addEventListener("scroll", () => {
+      const y = scrollPosition()
+      if (!mobile.matches || reducedMotion.matches || y <= cutoff
+        || header.contains(document.activeElement)
+        || header.querySelector('[aria-expanded="true"]')) {
+        show()
+      } else if (y !== previousY) {
+        // Once the top padding is gone, direction alone controls visibility.
+        header.dataset.hidden = String(y > previousY)
+      }
+      previousY = y
+    }, { passive: true })
+
+    // Keep keyboard navigation immediate, without animating focused controls.
+    header.addEventListener("focusin", show)
+    mobile.addEventListener("change", reset)
+    reducedMotion.addEventListener("change", reset)
+    window.addEventListener("resize", measure)
+    window.addEventListener("pageshow", reset)
+    const resizeObserver = new ResizeObserver(measure)
+    resizeObserver.observe(header)
+    resizeObserver.observe(main)
+    reset()
+  }
+</script>
