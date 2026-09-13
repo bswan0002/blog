@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./flexoki.css";
 @import "./typeset.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -51,73 +52,87 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* Flexoki UI roles. Keep primary buttons neutral; prose links use cyan. */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.147 0.004 49.3);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.147 0.004 49.3);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.147 0.004 49.3);
-    --primary: oklch(0.214 0.009 43.1);
-    --primary-foreground: oklch(0.986 0.002 67.8);
-    --secondary: oklch(0.96 0.002 17.2);
-    --secondary-foreground: oklch(0.214 0.009 43.1);
-    --muted: oklch(0.96 0.002 17.2);
-    --muted-foreground: oklch(0.547 0.021 43.1);
-    --accent: oklch(0.96 0.002 17.2);
-    --accent-foreground: oklch(0.214 0.009 43.1);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0.005 34.3);
-    --input: oklch(0.922 0.005 34.3);
-    --ring: oklch(0.714 0.014 41.2);
-    --chart-1: oklch(0.868 0.007 39.5);
-    --chart-2: oklch(0.547 0.021 43.1);
-    --chart-3: oklch(0.438 0.017 39.3);
-    --chart-4: oklch(0.367 0.016 35.7);
-    --chart-5: oklch(0.268 0.011 36.5);
     --radius: 0.625rem;
-    --sidebar: oklch(0.986 0.002 67.8);
-    --sidebar-foreground: oklch(0.147 0.004 49.3);
-    --sidebar-primary: oklch(0.214 0.009 43.1);
-    --sidebar-primary-foreground: oklch(0.986 0.002 67.8);
-    --sidebar-accent: oklch(0.96 0.002 17.2);
-    --sidebar-accent-foreground: oklch(0.214 0.009 43.1);
-    --sidebar-border: oklch(0.922 0.005 34.3);
-    --sidebar-ring: oklch(0.714 0.014 41.2);
+    --background: var(--flexoki-paper);
+    --foreground: var(--flexoki-black);
+    --card: var(--flexoki-paper);
+    --card-foreground: var(--flexoki-black);
+    --popover: var(--flexoki-50);
+    --popover-foreground: var(--flexoki-black);
+    --primary: var(--flexoki-black);
+    --primary-foreground: var(--flexoki-paper);
+    --secondary: var(--flexoki-50);
+    --secondary-foreground: var(--flexoki-black);
+    --muted: var(--flexoki-50);
+    --muted-foreground: var(--flexoki-600);
+    --accent: var(--flexoki-100);
+    --accent-foreground: var(--flexoki-black);
+    --destructive: var(--flexoki-red-600);
+    --border: var(--flexoki-100);
+    --input: var(--flexoki-150);
+    --ring: var(--flexoki-cyan-700);
+    --chart-1: var(--flexoki-cyan-600);
+    --chart-2: var(--flexoki-orange-600);
+    --chart-3: var(--flexoki-purple-600);
+    --chart-4: var(--flexoki-green-600);
+    --chart-5: var(--flexoki-magenta-600);
+    --sidebar: var(--flexoki-50);
+    --sidebar-foreground: var(--flexoki-black);
+    --sidebar-primary: var(--flexoki-black);
+    --sidebar-primary-foreground: var(--flexoki-paper);
+    --sidebar-accent: var(--flexoki-100);
+    --sidebar-accent-foreground: var(--flexoki-black);
+    --sidebar-border: var(--flexoki-100);
+    --sidebar-ring: var(--flexoki-cyan-700);
+    /* Cyan 700 clears 4.5:1 on paper; cyan 600 falls just short. */
+    --link: var(--flexoki-cyan-700);
+    --link-hover: var(--flexoki-cyan-800);
+    --selection: var(--flexoki-cyan-100);
+    --selection-foreground: var(--flexoki-black);
+    --highlight: var(--flexoki-yellow-100);
+    --highlight-foreground: var(--flexoki-black);
 }
 
 .dark {
-    --background: oklch(0.147 0.004 49.3);
-    --foreground: oklch(0.986 0.002 67.8);
-    --card: oklch(0.214 0.009 43.1);
-    --card-foreground: oklch(0.986 0.002 67.8);
-    --popover: oklch(0.214 0.009 43.1);
-    --popover-foreground: oklch(0.986 0.002 67.8);
-    --primary: oklch(0.922 0.005 34.3);
-    --primary-foreground: oklch(0.214 0.009 43.1);
-    --secondary: oklch(0.268 0.011 36.5);
-    --secondary-foreground: oklch(0.986 0.002 67.8);
-    --muted: oklch(0.268 0.011 36.5);
-    --muted-foreground: oklch(0.714 0.014 41.2);
-    --accent: oklch(0.268 0.011 36.5);
-    --accent-foreground: oklch(0.986 0.002 67.8);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.547 0.021 43.1);
-    --chart-1: oklch(0.868 0.007 39.5);
-    --chart-2: oklch(0.547 0.021 43.1);
-    --chart-3: oklch(0.438 0.017 39.3);
-    --chart-4: oklch(0.367 0.016 35.7);
-    --chart-5: oklch(0.268 0.011 36.5);
-    --sidebar: oklch(0.214 0.009 43.1);
-    --sidebar-foreground: oklch(0.986 0.002 67.8);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.986 0.002 67.8);
-    --sidebar-accent: oklch(0.268 0.011 36.5);
-    --sidebar-accent-foreground: oklch(0.986 0.002 67.8);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.547 0.021 43.1);
+    --background: var(--flexoki-black);
+    --foreground: var(--flexoki-200);
+    --card: var(--flexoki-950);
+    --card-foreground: var(--flexoki-200);
+    --popover: var(--flexoki-950);
+    --popover-foreground: var(--flexoki-200);
+    --primary: var(--flexoki-200);
+    --primary-foreground: var(--flexoki-black);
+    --secondary: var(--flexoki-950);
+    --secondary-foreground: var(--flexoki-200);
+    --muted: var(--flexoki-950);
+    --muted-foreground: var(--flexoki-500);
+    --accent: var(--flexoki-900);
+    --accent-foreground: var(--flexoki-200);
+    --destructive: var(--flexoki-red-400);
+    --border: var(--flexoki-900);
+    --input: var(--flexoki-850);
+    --ring: var(--flexoki-cyan-400);
+    --chart-1: var(--flexoki-cyan-400);
+    --chart-2: var(--flexoki-orange-400);
+    --chart-3: var(--flexoki-purple-400);
+    --chart-4: var(--flexoki-green-400);
+    --chart-5: var(--flexoki-magenta-400);
+    --sidebar: var(--flexoki-950);
+    --sidebar-foreground: var(--flexoki-200);
+    --sidebar-primary: var(--flexoki-200);
+    --sidebar-primary-foreground: var(--flexoki-black);
+    --sidebar-accent: var(--flexoki-900);
+    --sidebar-accent-foreground: var(--flexoki-200);
+    --sidebar-border: var(--flexoki-900);
+    --sidebar-ring: var(--flexoki-cyan-400);
+    --link: var(--flexoki-cyan-400);
+    --link-hover: var(--flexoki-cyan-300);
+    --selection: var(--flexoki-cyan-800);
+    --selection-foreground: var(--flexoki-paper);
+    --highlight: var(--flexoki-yellow-800);
+    --highlight-foreground: var(--flexoki-paper);
 }
 
 @layer base {
@@ -130,4 +145,29 @@
   html {
     @apply font-sans;
     }
+}
+
+/* Explicit foreground keeps selected syntax-highlighted tokens readable too. */
+::selection {
+  background-color: var(--selection);
+  color: var(--selection-foreground);
+}
+
+/* Shiki emits Light+ colors inline, but token font styles use variables. */
+.astro-code,
+.astro-code span {
+  font-style: var(--shiki-light-font-style, normal);
+  font-weight: var(--shiki-light-font-weight, normal);
+  text-decoration: var(--shiki-light-text-decoration, none);
+}
+
+/* Follow the site's toggle, not a separate media query, so explicit
+   preferences override the OS for Dark+ colors and token font styles. */
+.dark .astro-code,
+.dark .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style, normal) !important;
+  font-weight: var(--shiki-dark-font-weight, normal) !important;
+  text-decoration: var(--shiki-dark-text-decoration, none) !important;
 }
