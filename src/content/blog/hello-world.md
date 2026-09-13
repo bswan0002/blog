@@ -20,7 +20,10 @@ Add a `.md` file to `src/content/blog/` with a title and publication date in its
 
 ```ts
 const greeting = "Hello world"
-console.log(greeting)
+const myFunc = () => {
+  console.log("wow")
+}
+myFunc()
 ```
 
 ## A small table
