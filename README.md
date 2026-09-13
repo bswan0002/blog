@@ -19,6 +19,19 @@ Inline code retains the surrounding Flexoki styling. If adding Astro's `<Code />
 component, pass `themes={{ light: "light-plus", dark: "dark-plus" }}` explicitly;
 that component does not inherit the Markdown configuration.
 
+## Fonts
+
+Inter uses [Astro's Fonts API](https://docs.astro.build/en/guides/fonts/) with the
+local provider pointing to the normal Latin WOFF2 file in the installed
+`@fontsource-variable/inter` package (no remote font fetching).
+`astro.config.mjs` registers its full variable weight range and keeps Astro's
+optimized fallbacks enabled. `src/layouts/main.astro` preloads that single file,
+and Tailwind's `--font-sans` uses the generated `--font-inter` stack
+so the metric-adjusted fallbacks also apply to headings, navigation, and controls.
+Do not also import Inter's Fontsource CSS; Astro generates its font-face rules.
+
+Geist Mono continues to use its existing Fontsource CSS import without preloading.
+
 ## Adding components
 
 To add components to your app, run the following command:
