@@ -21,16 +21,18 @@ that component does not inherit the Markdown configuration.
 
 ## Fonts
 
-Inter uses [Astro's Fonts API](https://docs.astro.build/en/guides/fonts/) with the
-local provider pointing to the normal Latin WOFF2 file in the installed
-`@fontsource-variable/inter` package (no remote font fetching).
-`astro.config.mjs` registers its full variable weight range and keeps Astro's
-optimized fallbacks enabled. `src/layouts/main.astro` preloads that single file,
-and Tailwind's `--font-sans` uses the generated `--font-inter` stack
-so the metric-adjusted fallbacks also apply to headings, navigation, and controls.
-Do not also import Inter's Fontsource CSS; Astro generates its font-face rules.
+Inter and Geist Mono use [Astro's Fonts API](https://docs.astro.build/en/guides/fonts/)
+with the local provider pointing to normal Latin WOFF2 files in the installed
+`@fontsource-variable/inter` and `@fontsource-variable/geist-mono` packages
+(no remote font fetching). `astro.config.mjs` registers their full variable
+weight ranges and keeps Astro's optimized fallbacks enabled, using a monospace
+fallback for Geist Mono.
 
-Geist Mono continues to use its existing Fontsource CSS import without preloading.
+`src/layouts/main.astro` preloads one file per family. Tailwind's `--font-sans`
+uses the generated `--font-inter` stack for prose and headings; `--font-mono`
+uses `--font-geist-mono` for header breadcrumbs and code. Both stacks include
+metric-adjusted fallbacks to reduce movement while fonts load.
+Do not also import their Fontsource CSS; Astro generates the font-face rules.
 
 ## Adding components
 
