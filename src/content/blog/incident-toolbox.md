@@ -1,6 +1,5 @@
 ---
-title: "A Small Incident-Response Toolbox for the Nights When Your Logs Are Huge, Your Terminal Is Narrow, and the Dashboard Is Not Helping"
-description: "Example post: Python and Bash highlighting, log output, footnotes, ordered steps, and fenced code nested inside lists."
+title: "A Small Incident-Response Toolbox"
 pubDate: 2026-01-12
 ---
 

@@ -21,7 +21,6 @@ const { Content } = await render(post)
 
 <Main
   title={post.data.title}
-  description={post.data.description}
   breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.data.title }]}
 >
   <CodeBlockControls />

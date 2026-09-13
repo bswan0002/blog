@@ -6,11 +6,10 @@ import { SiteBreadcrumb, type BreadcrumbEntry } from "@/components/site-breadcru
 
 interface Props {
   title?: string
-  description?: string
   breadcrumbs?: BreadcrumbEntry[]
 }
 
-const { title = "Ben Swanson", description, breadcrumbs = [] } = Astro.props
+const { title = "Ben Swanson", breadcrumbs = [] } = Astro.props
 ---
 
 <html lang="en">
@@ -57,10 +56,9 @@ const { title = "Ben Swanson", description, breadcrumbs = [] } = Astro.props
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
   </head>
   <body>
-    <header id="site-header" class="sticky top-0 z-50 border-b bg-background py-4">
+    <header id="site-header" class="sticky top-0 z-50 flex min-h-[80px] items-center border-b bg-background py-4">
       <div class="mx-auto flex w-[calc(100%-2rem)] max-w-[640px] items-center justify-between gap-4">
         <SiteBreadcrumb items={breadcrumbs} />
         <ModeToggle client:load />

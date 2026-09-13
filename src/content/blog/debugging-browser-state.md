@@ -1,6 +1,5 @@
 ---
-title: "The Browser Was Doing Exactly What We Asked: Debugging stale search"
-description: "Example post: JavaScript and JSX highlighting, task lists, blockquotes, reference links, and wide comparison tables."
+title: "Debugging Stale Browser State"
 pubDate: 2026-01-08
 ---
 

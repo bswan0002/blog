@@ -1,6 +1,5 @@
 ---
-title: "Building Interfaces That Survive Real Content: Long Headings, Unbroken URLs, Nested Documentation, and Code That Refuses to Fit on One Line"
-description: "Example post: HTML and CSS highlighting, heading levels, raw HTML, local imagery, wide tables, and Markdown edge cases."
+title: "Building Interfaces for Real Content"
 pubDate: 2026-01-16
 ---
 

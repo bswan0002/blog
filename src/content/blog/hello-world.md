@@ -1,6 +1,5 @@
 ---
 title: Hello world
-description: A simple Markdown post styled with Typeset.
 pubDate: 2026-01-01
 ---
 

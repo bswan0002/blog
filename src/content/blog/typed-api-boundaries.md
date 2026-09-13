@@ -1,6 +1,5 @@
 ---
-title: "Designing Type-Safe API Boundaries Without Turning Every Fetch Request Into a Framework Nobody Wants to Maintain"
-description: "Example post: TypeScript and TSX highlighting, wide code blocks, nested lists, and long inline identifiers."
+title: "Designing Type-Safe API Boundaries"
 pubDate: 2026-01-05
 ---
 
