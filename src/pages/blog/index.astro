@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content"
+import Main from "@/layouts/main.astro"
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+---
+
+<Main title="Blog">
+  <main class="typeset mx-auto max-w-3xl px-6 py-12">
+    <h1>Blog</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          {post.data.description && <p>{post.data.description}</p>}
+        </li>
+      ))}
+    </ul>
+  </main>
+</Main>
