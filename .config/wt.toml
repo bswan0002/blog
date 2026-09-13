@@ -1,0 +1,3 @@
+# Install dependencies when Worktrunk creates a new worktree.
+[pre-start]
+deps = "npm install"
