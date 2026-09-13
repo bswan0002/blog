@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content"
 import Main from "@/layouts/main.astro"
+import CodeBlockControls from "@/components/code-block-controls.astro"
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog")
@@ -23,6 +24,7 @@ const { Content } = await render(post)
   description={post.data.description}
   breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.data.title }]}
 >
+  <CodeBlockControls />
   <main class="py-12">
     <article class="typeset">
       <h1>{post.data.title}</h1>

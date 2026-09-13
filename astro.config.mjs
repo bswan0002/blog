@@ -3,6 +3,8 @@
 import tailwindcss from "@tailwindcss/vite"
 import { defineConfig, fontProviders } from "astro/config"
 import react from "@astrojs/react"
+import { satteri } from "@astrojs/markdown-satteri"
+import scrollTables from "./src/lib/hast-scroll-tables.mjs"
 
 // https://astro.build/config
 export default defineConfig({
@@ -27,6 +29,7 @@ export default defineConfig({
     },
   ],
   markdown: {
+    processor: satteri({ hastPlugins: [scrollTables] }),
     shikiConfig: {
       themes: {
         light: "light-plus",
