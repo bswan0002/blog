@@ -25,21 +25,6 @@ export default defineConfig({
         ],
       },
     },
-    {
-      provider: fontProviders.local(),
-      name: "Geist Mono Variable",
-      cssVariable: "--font-geist-mono",
-      fallbacks: ["monospace"],
-      options: {
-        variants: [
-          {
-            src: ["@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2"],
-            weight: "100 900",
-            style: "normal",
-          },
-        ],
-      },
-    },
   ],
   markdown: {
     shikiConfig: {

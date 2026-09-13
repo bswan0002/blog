@@ -16,7 +16,7 @@ export interface BreadcrumbEntry {
 export function SiteBreadcrumb({ items = [] }: { items?: BreadcrumbEntry[] }) {
   return (
     <Breadcrumb>
-      <BreadcrumbList className="font-mono">
+      <BreadcrumbList>
         <BreadcrumbItem>
           <BreadcrumbLink href="/" aria-current={items.length === 0 ? "page" : undefined}>
             Ben Swanson
@@ -24,7 +24,7 @@ export function SiteBreadcrumb({ items = [] }: { items?: BreadcrumbEntry[] }) {
         </BreadcrumbItem>
         {items.map((item, index) => (
           <Fragment key={index}>
-            <BreadcrumbSeparator>/</BreadcrumbSeparator>
+            <BreadcrumbSeparator />
             <BreadcrumbItem className="min-w-0">
               {item.href ? (
                 <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
